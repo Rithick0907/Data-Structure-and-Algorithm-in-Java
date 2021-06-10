@@ -1,39 +1,41 @@
 package Part1LinearDataStructure;
 
 public class LinkedList {
-    private class Node{
+    private class Node {
         private int data;
         private Node next;
-        public Node(int data){
-            this.data=data;
+
+        public Node(int data) {
+            this.data = data;
         }
     }
+
     private Node head;
     private Node tail;
 
-    public void addFirst(int value){
-        if(isEmpty()){
+    public void addFirst(int value) {
+        if (isEmpty()) {
             head = tail = new Node(value);
-        } else{
+        } else {
             Node node = new Node(value);
             node.next = head;
             head = node;
         }
     }
 
-    public void addLast(int value){
+    public void addLast(int value) {
         Node current = new Node(value);
-        if(isEmpty()){
+        if (isEmpty()) {
             head = tail = current;
-        }else{
+        } else {
             tail.next = current;
             tail = tail.next;
         }
     }
 
-    public int indexOf(int value){
+    public int indexOf(int value) {
         int index = -1;
-        if(!isEmpty()) {
+        if (!isEmpty()) {
             Node current = head;
             while (current != null) {
                 if (current.data == value) {
@@ -47,68 +49,68 @@ public class LinkedList {
         return index;
     }
 
-    public boolean contains(int value){
-        if(!isEmpty()){
+    public boolean contains(int value) {
+        if (!isEmpty()) {
             Node current = head;
-            while(current!=null){
-                if(current.data==value){
+            while (current != null) {
+                if (current.data == value) {
                     return true;
                 }
-                current=current.next;
+                current = current.next;
             }
         }
         return false;
     }
 
-    public int size(){
+    public int size() {
         int size = 0;
-        if(!isEmpty()){
+        if (!isEmpty()) {
             Node current = head;
-            while(current!=null){
+            while (current != null) {
                 size++;
-                current=current.next;
+                current = current.next;
             }
         }
         return size;
     }
 
-    public void removeFirst(){
-        if(isEmpty()){
+    public void removeFirst() {
+        if (isEmpty()) {
             System.out.println("Linked List is Empty");
         } else {
             head = head.next;
         }
     }
 
-    public void removeLast(){
-        if(!isEmpty()){
+    public void removeLast() {
+        if (!isEmpty()) {
             Node current = head;
             Node previous = null;
-            while(current.next!=null){
+            while (current.next != null) {
                 previous = current;
                 current = current.next;
             }
-            if(previous == null){
+            if (previous == null) {
                 head = tail = null;
-            }else {
+            } else {
                 tail = previous;
                 tail.next = null;
             }
         }
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return head == null;
     }
-    public void print(){
-        if(!isEmpty()) {
+
+    public void print() {
+        if (!isEmpty()) {
             Node current = head;
             while (current != null) {
                 System.out.print(current.data + " ");
                 current = current.next;
             }
-        }
-        else{
+        } else {
             System.out.println("Linked List is Empty");
         }
     }

@@ -8,22 +8,22 @@ public class Queue {
     private int rear;
     private int count;
 
-    public Queue(int capacity){
+    public Queue(int capacity) {
         queue = new int[capacity];
     }
 
-    public void enqueue(int value){
-        if(isFull()) {
+    public void enqueue(int value) {
+        if (isFull()) {
             System.out.println("Queue is Full");
-        }else{
+        } else {
             queue[rear] = value;         //Here we use array circularly to efficiently use empty array index space
             rear = (rear + 1) % queue.length;
             count++;
         }
     }
 
-    public int dequeue(){
-        if(isEmpty())   throw new IllegalArgumentException();
+    public int dequeue() {
+        if (isEmpty()) throw new IllegalArgumentException();
         int result = queue[front];
         queue[front] = 0;
         front = (front + 1) % queue.length;
@@ -31,20 +31,20 @@ public class Queue {
         return result;
     }
 
-    public int peek(){
+    public int peek() {
         return queue[front];
     }
 
-    public boolean isFull(){
+    public boolean isFull() {
         return count == queue.length;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return count == 0;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return Arrays.toString(queue);
     }
 }
