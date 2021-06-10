@@ -1,4 +1,4 @@
-package LinearDataStructure;
+package LinearDS;
 
 import java.util.LinkedList;
 

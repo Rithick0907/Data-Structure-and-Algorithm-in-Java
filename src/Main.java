@@ -1,4 +1,4 @@
-import LinearDataStructure.*;     //import all class from Part1OrderedDataStructure
+import LinearDS.*;     //import all class from Part1OrderedDataStructure
 
 public class Main {
     public static void main(String[] args) {

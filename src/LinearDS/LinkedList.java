@@ -1,4 +1,4 @@
-package LinearDataStructure;
+package LinearDS;
 
 public class LinkedList {
     private class Node {
