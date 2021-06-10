@@ -1,4 +1,4 @@
-import LinearDS.*;     //import all class from Part1OrderedDataStructure
+import LinearDS.*;     //import all class from LinearDS package.
 
 public class Main {
     public static void main(String[] args) {
@@ -12,7 +12,6 @@ public class Main {
         queue.enqueue(50);
         queue.enqueue(60);
         queue.enqueue(70);
-
         System.out.println(queue.toString());
     }
 }

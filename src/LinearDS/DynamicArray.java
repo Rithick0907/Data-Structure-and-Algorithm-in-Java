@@ -3,9 +3,9 @@ package LinearDS;
 import java.util.Arrays;
 
 public class DynamicArray {
-    int[] array;                            //Since array is also an object,here by default constructor it is initialized to null
-    int size;
-    int count;                              //To keep track of index
+    private int[] array;                            //Since array is also an object,here by default constructor it is initialized to null
+    private int size;
+    private int count;                              //To keep track of index
 
     public DynamicArray(int capacity) {
         this.array = new int[capacity];
