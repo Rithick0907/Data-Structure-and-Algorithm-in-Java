@@ -33,18 +33,18 @@ public class HashTable {
         int index = hashFunction(key);
         if (entries[index] == null) {
             entries[index] = new LinkedList<>();
-            //Here we only create a new linked list in array index if that index is empty and not add any values to it.
-            //So don't break the exit after initializing that index
+            //Here we only create a new linked list in array index if that index is empty and don't add any values to it.
         }
 
         LinkedList<Entry> bucket = entries[index];        //Store that values array index to another variable to make our code clean.
-        for (var entry : bucket) {                   //This for loop is to handle repeated key values
+         //This below "for" loop is to handle repeated key values i.e., if same key value is given it update that value for key like Hashmap not add it again to linkedlist
+        for (var entry : bucket) {
             if (entry.key == key) {
                 entry.value = value;
                 return;
             }
         }
-        bucket.addLast(new Entry(key, value));      //This is to add new node to our linked list in specified array index
+        bucket.addLast(new Entry(key, value));           //This is to add new node to our linked list in specified array index
     }
 
     public int get(String key) {
