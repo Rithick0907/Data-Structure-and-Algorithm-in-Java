@@ -37,7 +37,7 @@ public class HashTable {
         }
 
         LinkedList<Entry> bucket = entries[index];        //Store that values array index to another variable to make our code clean.
-         //This below "for" loop is to handle repeated key values i.e., if same key value is given it update that value for key like Hashmap not add it again to linkedlist
+         //This below "for" loop is to handle repeated key values i.e., if same key value is given, it update that value for key like Hashmap & not add duplicate key value to linkedlist.
         for (var entry : bucket) {
             if (entry.key == key) {
                 entry.value = value;
@@ -48,19 +48,17 @@ public class HashTable {
     }
 
     public int get(String key) {
-        int result = Integer.MIN_VALUE;
         int index = hashFunction(key);
         LinkedList<Entry> bucket = entries[index];
 
         if (bucket != null) {
             for (var entry : bucket) {
                 if (entry.key == key) {
-                    result = entry.value;
-                    break;
+                    return entry.value;
                 }
             }
         }
-        return result;
+        throw new IllegalStateException();      //To handle if the specified key is absent scenario
     }
 
     public void remove(String key) {
