@@ -1,17 +1,15 @@
-import LinearDS.*;     //import all class from LinearDS package.
+import NonLinearDS.BinaryTree;
 
 public class Main {
     public static void main(String[] args) {
-        Queue queue = new Queue(5);
-        queue.enqueue(10);
-        queue.enqueue(20);
-        System.out.println(queue.dequeue());
-        System.out.println(queue.dequeue());
-        queue.enqueue(30);
-        queue.enqueue(40);
-        queue.enqueue(50);
-        queue.enqueue(60);
-        queue.enqueue(70);
-        System.out.println(queue.toString());
+        BinaryTree bt = new BinaryTree();
+        bt.insert(7);
+        bt.insert(4);
+        bt.insert(9);
+        bt.insert(1);
+        bt.insert(6);
+        bt.insert(8);
+        bt.insert(10);
+        System.out.println(bt.find(7));
     }
 }
