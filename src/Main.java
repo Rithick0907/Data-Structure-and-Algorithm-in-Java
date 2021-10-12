@@ -10,6 +10,6 @@ public class Main {
         bt.insert(6);
         bt.insert(8);
         bt.insert(10);
-        System.out.println(bt.find(7));
+        System.out.println(bt.min());
     }
 }

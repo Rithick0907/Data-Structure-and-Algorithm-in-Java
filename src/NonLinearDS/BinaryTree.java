@@ -80,10 +80,25 @@ public class BinaryTree {
     public int height(){
         return height(this.root);
     }
+    public int min(){
+        return min(this.root);
+    }
+    private boolean isLeaf(Node root){
+        if(root.left == null && root.right == null) return true;
+        return false;
+    }
+    // This implementation is for Binary Tree No BST. For BST only traverse to left child until you reach leaf.
+    private int min(Node root){
+        if(isLeaf(root))
+            return root.data;
+        var left = min(root.left);
+        var right = min(root.right);
+        return Math.min(Math.min(left,right),root.data);
+    }
 
     private int height(Node root){
         if(root == null)    return -1;
-        if(root.left == null && root.right == null)     return 0;
+        if(isLeaf(root))     return 0;
 
         return 1 + Math.max(height(root.left),height(root.right));
     }
