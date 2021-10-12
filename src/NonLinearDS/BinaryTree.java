@@ -102,4 +102,16 @@ public class BinaryTree {
 
         return 1 + Math.max(height(root.left),height(root.right));
     }
+
+    public boolean equals(Node root){
+        if(root == null)    return false;
+        return equals(this.root,root);
+    }
+
+    private boolean equals(Node first, Node second){
+        if(first == null && second == null) return true;
+        if(first != null && second != null)
+            return first.data != second.data && equals(first.left,second.left) && equals(first.right,second.right);
+        return false;
+    }
 }
