@@ -119,13 +119,13 @@ public class BinaryTree {
     public boolean isBST(){
         return isBST(this.root,Integer.MIN_VALUE,Integer.MAX_VALUE);
     }
-    public List<Integer> NodeAtKDistance(int distance){
+    public List<Integer> getNodeAtKDistance(int distance){
         List<Integer> list = new ArrayList<>();
-        NodeAtKDistance(this.root,distance,list);
+        getNodeAtKDistance(this.root,distance,list);
         return list;
     }
 
-    public void NodeAtKDistance(Node root,int distance,List<Integer> list){
+    public void getNodeAtKDistance(Node root,int distance,List<Integer> list){
         if(root == null) return;
 
         if(distance == 0){
@@ -133,8 +133,15 @@ public class BinaryTree {
             return;
         }
 
-        NodeAtKDistance(root.left,distance - 1,list);
-        NodeAtKDistance(root.right,distance - 1,list);
+        getNodeAtKDistance(root.left,distance - 1,list);
+        getNodeAtKDistance(root.right,distance - 1,list);
+    }
+
+    public void levelOrderTraversal(){
+        for(int i = 0; i <= height(); i++){
+            var list = getNodeAtKDistance(i);
+            System.out.println(list);
+        }
     }
 
     private boolean isBST(Node root,int min,int max){
