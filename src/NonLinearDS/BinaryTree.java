@@ -107,7 +107,24 @@ public class BinaryTree {
         if(root == null)    return false;
         return equals(this.root,root);
     }
+    public void swapNode(){
+        Node temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+    }
 
+    public boolean isBST(){
+        return isBST(this.root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+    }
+
+    private boolean isBST(Node root,int min,int max){
+        if(root == null)    return true;
+        if(root.data < min || root.data > max) return false;
+
+        return
+            isBST(root.left,min,root.data-1)
+                && isBST(root.right,root.data+1,max);
+    }
     private boolean equals(Node first, Node second){
         if(first == null && second == null) return true;
         if(first != null && second != null)
