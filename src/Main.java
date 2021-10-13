@@ -10,7 +10,6 @@ public class Main {
         bt.insert(6);
         bt.insert(8);
         bt.insert(10);
-        bt.swapNode();
-        System.out.println(bt.isBST());
+        System.out.println(bt.NodeAtKDistance(2));
     }
 }

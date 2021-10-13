@@ -1,5 +1,8 @@
 package NonLinearDS;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BinaryTree {
     private class Node{
         int data;
@@ -115,6 +118,23 @@ public class BinaryTree {
 
     public boolean isBST(){
         return isBST(this.root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+    }
+    public List<Integer> NodeAtKDistance(int distance){
+        List<Integer> list = new ArrayList<>();
+        NodeAtKDistance(this.root,distance,list);
+        return list;
+    }
+
+    public void NodeAtKDistance(Node root,int distance,List<Integer> list){
+        if(root == null) return;
+
+        if(distance == 0){
+            list.add(root.data);
+            return;
+        }
+
+        NodeAtKDistance(root.left,distance - 1,list);
+        NodeAtKDistance(root.right,distance - 1,list);
     }
 
     private boolean isBST(Node root,int min,int max){
