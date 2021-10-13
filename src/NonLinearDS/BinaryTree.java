@@ -80,25 +80,20 @@ public class BinaryTree {
         System.out.println(root.data);
     }
 
-    public int height(){
-        return height(this.root);
-    }
-    public int min(){
-        return min(this.root);
-    }
     private boolean isLeaf(Node root){
         if(root.left == null && root.right == null) return true;
         return false;
     }
-    // This implementation is for Binary Tree No BST. For BST only traverse to left child until you reach leaf.
-    private int min(Node root){
-        if(isLeaf(root))
-            return root.data;
-        var left = min(root.left);
-        var right = min(root.right);
-        return Math.min(Math.min(left,right),root.data);
+
+    public void swapNode(){
+        Node temp = root.left;
+        root.left = root.right;
+        root.right = temp;
     }
 
+    public int height(){
+        return height(this.root);
+    }
     private int height(Node root){
         if(root == null)    return -1;
         if(isLeaf(root))     return 0;
@@ -106,19 +101,6 @@ public class BinaryTree {
         return 1 + Math.max(height(root.left),height(root.right));
     }
 
-    public boolean equals(Node root){
-        if(root == null)    return false;
-        return equals(this.root,root);
-    }
-    public void swapNode(){
-        Node temp = root.left;
-        root.left = root.right;
-        root.right = temp;
-    }
-
-    public boolean isBST(){
-        return isBST(this.root,Integer.MIN_VALUE,Integer.MAX_VALUE);
-    }
     public List<Integer> getNodeAtKDistance(int distance){
         List<Integer> list = new ArrayList<>();
         getNodeAtKDistance(this.root,distance,list);
@@ -144,6 +126,22 @@ public class BinaryTree {
         }
     }
 
+    public int min(){
+        return min(this.root);
+    }
+
+    // This implementation is for Binary Tree No BST. For BST only traverse to left child until you reach leaf.
+    private int min(Node root){
+        if(isLeaf(root))
+            return root.data;
+        var left = min(root.left);
+        var right = min(root.right);
+        return Math.min(Math.min(left,right),root.data);
+    }
+
+    public boolean isBST(){
+        return isBST(this.root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+    }
     private boolean isBST(Node root,int min,int max){
         if(root == null)    return true;
         if(root.data < min || root.data > max) return false;
@@ -152,10 +150,16 @@ public class BinaryTree {
             isBST(root.left,min,root.data-1)
                 && isBST(root.right,root.data+1,max);
     }
+
+    public boolean equals(Node root){
+        if(root == null)    return false;
+        return equals(this.root,root);
+    }
     private boolean equals(Node first, Node second){
         if(first == null && second == null) return true;
         if(first != null && second != null)
-            return first.data != second.data && equals(first.left,second.left) && equals(first.right,second.right);
+            return first.data == second.data && equals(first.left,second.left) && equals(first.right,second.right);
         return false;
     }
+
 }
