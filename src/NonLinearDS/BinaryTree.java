@@ -161,5 +161,19 @@ public class BinaryTree {
             return first.data == second.data && equals(first.left,second.left) && equals(first.right,second.right);
         return false;
     }
+    public void mirrorTree(){
+        mirrorTree(this.root);
+    }
+    private Node mirrorTree(Node root){
+        if(root == null)    return root;
+        //Do mirror for Subtree
+        Node left = mirrorTree(root.left);
+        Node right = mirrorTree(root.right);
 
+        //After Finding mirror swap it
+        root.left = right;
+        root.right = left;
+
+        return root;
+    }
 }

@@ -11,6 +11,8 @@ public class Main {
         bt.insert(8);
         bt.insert(10);
         bt.levelOrderTraversal();
-
+        bt.mirrorTree();
+        System.out.println("-----------------------------------");
+        bt.levelOrderTraversal();
     }
 }
