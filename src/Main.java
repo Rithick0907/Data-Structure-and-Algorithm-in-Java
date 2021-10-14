@@ -1,18 +1,12 @@
 import NonLinearDS.BinaryTree;
+import SortingAndSearching.BubbleSort;
+
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        BinaryTree bt = new BinaryTree();
-        bt.insert(7);
-        bt.insert(4);
-        bt.insert(9);
-        bt.insert(1);
-        bt.insert(6);
-        bt.insert(8);
-        bt.insert(10);
-        bt.levelOrderTraversal();
-        bt.mirrorTree();
-        System.out.println("-----------------------------------");
-        bt.levelOrderTraversal();
+        BubbleSort bs = new BubbleSort();
+        int[] arr = {7,10,3,0,1,2,3,3,16};
+        bs.sort(arr);
     }
 }
