@@ -2,7 +2,7 @@ package SortingAndSearching;
 
 public class BinarySearch {
     public int search(int[] arr,int target){
-        return search(arr,0,arr.length,target);
+        return search(arr,0,arr.length - 1,target); //Because end index must be valid.
     }
     private int search(int[] arr, int start, int end,int target){
         if(start > end) return -1;
